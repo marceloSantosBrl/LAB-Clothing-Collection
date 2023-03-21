@@ -22,14 +22,14 @@
         "isPrinted": false,
         "isEmbroidered": false
       },
-      {
-        "modelId": 3,
-        "name": "Adidas talento",
-        "type": "boné",
-        "creator": "Armanni Gucci",
-        "isPrinted": false,
-        "isEmbroidered": true
-      }]
+        {
+          "modelId": 3,
+          "name": "Adidas talento",
+          "type": "boné",
+          "creator": "Armanni Gucci",
+          "isPrinted": false,
+          "isEmbroidered": true
+        }]
     },
     {
       "id": 2,
