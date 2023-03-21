@@ -1,0 +1,62 @@
+{
+  "collections": [
+    {
+      "id": 1,
+      "name": "adidas",
+      "creator": "Yan esteves",
+      "budget": 9500,
+      "season": "Inverno",
+      "year": 2003,
+      "models": [{
+        "modelId": 1,
+        "name": "Adidas turbo",
+        "type": "calça",
+        "creator": "Yan esteves",
+        "isPrinted": true,
+        "isEmbroidered": false
+      }, {
+        "modelId": 2,
+        "name": "Adidas Vero",
+        "type": "bermuda",
+        "creator": "Yan esteves",
+        "isPrinted": false,
+        "isEmbroidered": false
+      },
+      {
+        "modelId": 3,
+        "name": "Adidas talento",
+        "type": "boné",
+        "creator": "Armanni Gucci",
+        "isPrinted": false,
+        "isEmbroidered": true
+      }]
+    },
+    {
+      "id": 2,
+      "name": "Nike",
+      "creator": "Victor Benni",
+      "budget": 500,
+      "season": "Verão",
+      "year": 2003,
+      "models": []
+    },
+    {
+      "id": 3,
+      "name": "Gucci",
+      "creator": "Andre Sulart",
+      "budget": 500,
+      "season": "Outono",
+      "year": 2003,
+      "models": [
+        {
+          "modelId": 1,
+          "name": "Gucci breaker",
+          "type": "saia",
+          "creator": "Armanni Gucci",
+          "isPrinted": false,
+          "isEmbroidered": true
+        }
+      ]
+    }
+  ]
+}
