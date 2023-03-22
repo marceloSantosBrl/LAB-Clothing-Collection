@@ -1,16 +1,35 @@
 {
-  "collections": [
+  "data": [
     {
-      "id": 1,
-      "name": "Adidas New Inverno",
-      "brand": "Adidas",
-      "creator": "Yan esteves",
-      "budget": 9500,
-      "season": "inverno",
-      "year": 2003,
+      "collections": [
+        {
+          "name": "Adidas New Inverno",
+          "brand": "Adidas",
+          "creator": "Yan esteves",
+          "budget": 9500,
+          "season": "inverno",
+          "year": 2003
+        },
+        {
+          "name": "Nike Conceptual",
+          "brand": "Nike",
+          "creator": "Victor Benni",
+          "budget": 500,
+          "season": "verão",
+          "year": 2003
+        },
+        {
+          "name": "Gucci Prime",
+          "brand": "Gucci",
+          "creator": "Andre Sulart",
+          "budget": 500,
+          "season": "outono",
+          "year": 2003
+        }
+      ],
       "models": [
         {
-          "modelId": 1,
+          "collection": "Adidas New Inverno",
           "name": "Turbo",
           "type": "calça",
           "creator": "Yan esteves",
@@ -18,7 +37,7 @@
           "isEmbroidered": false
         },
         {
-          "modelId": 2,
+          "collection": "Adidas New Inverno",
           "name": "Vero",
           "type": "bermuda",
           "creator": "Yan esteves",
@@ -26,36 +45,15 @@
           "isEmbroidered": false
         },
         {
-          "modelId": 3,
+          "collection": "Adidas New Inverno",
           "name": "Talento",
           "type": "boné",
           "creator": "Armanni Gucci",
           "isPrinted": false,
           "isEmbroidered": true
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Nike Conceptual",
-      "brand": "Nike",
-      "creator": "Victor Benni",
-      "budget": 500,
-      "season": "verão",
-      "year": 2003,
-      "models": []
-    },
-    {
-      "id": 3,
-      "name": "Gucci",
-      "brand": "Gucci Prime",
-      "creator": "Andre Sulart",
-      "budget": 500,
-      "season": "outono",
-      "year": 2003,
-      "models": [
+        },
         {
-          "modelId": 1,
+          "collection": "Gucci Prime",
           "name": "Breaker",
           "type": "saia",
           "creator": "Armanni Gucci",
