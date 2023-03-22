@@ -2,6 +2,7 @@ import { IModels } from './imodels';
 
 export interface ICollections {
   id: number,
+  brand: string,
   name: string,
   creator: string,
   budget: number,
