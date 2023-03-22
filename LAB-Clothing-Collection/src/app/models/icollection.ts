@@ -1,6 +1,6 @@
-import { IModels } from './imodels';
+import { Imodel } from './imodel';
 
-export interface ICollections {
+export interface Icollection {
   id: number,
   brand: string,
   name: string,
@@ -8,5 +8,5 @@ export interface ICollections {
   budget: number,
   season : 'inverno' | 'verão' | 'primavera' | 'outono',
   year: number,
-  models: IModels[]
+  models: Imodel[]
 }
