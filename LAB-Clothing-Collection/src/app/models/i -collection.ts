@@ -1,5 +1,3 @@
-import { IModel } from './IModel';
-
 export interface ICollection {
   brand: string,
   name: string,
@@ -7,6 +5,5 @@ export interface ICollection {
   budget: number,
   season : 'inverno' | 'verão' | 'primavera' | 'outono',
   year: number,
-  models: IModel[]
-  id?: number,
+  CollectionId?: number,
 }
