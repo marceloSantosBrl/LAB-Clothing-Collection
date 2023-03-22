@@ -3,5 +3,6 @@ import { IModel } from './i-model';
 
 export interface IServerData {
   collections: ICollection[],
-  models: IModel[]
+  models: IModel[],
+  id?: number
 }

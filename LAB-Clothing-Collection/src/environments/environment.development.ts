@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:3000/collections',
+  API_URL: 'http://localhost:3000/data/1',
 };

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._crud.deleteCollection(4)
-      .subscribe((value) => console.log(value));
+    this._crud.getServerData()
+      .subscribe((value) => console.dir(value));
   }
 }
