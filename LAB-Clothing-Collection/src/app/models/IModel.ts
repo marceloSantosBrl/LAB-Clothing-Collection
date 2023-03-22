@@ -1,4 +1,4 @@
-export interface Imodel {
+export interface IModel {
   modelId: number,
   name: string,
   type: 'bermuda' | 'biquíni' | 'bolsa' | 'boné' |

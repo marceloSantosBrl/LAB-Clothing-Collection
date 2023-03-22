@@ -8,21 +8,23 @@
       "budget": 9500,
       "season": "inverno",
       "year": 2003,
-      "models": [{
-        "modelId": 1,
-        "name": "Turbo",
-        "type": "calça",
-        "creator": "Yan esteves",
-        "isPrinted": true,
-        "isEmbroidered": false
-      }, {
-        "modelId": 2,
-        "name": "Vero",
-        "type": "bermuda",
-        "creator": "Yan esteves",
-        "isPrinted": false,
-        "isEmbroidered": false
-      },
+      "models": [
+        {
+          "modelId": 1,
+          "name": "Turbo",
+          "type": "calça",
+          "creator": "Yan esteves",
+          "isPrinted": true,
+          "isEmbroidered": false
+        },
+        {
+          "modelId": 2,
+          "name": "Vero",
+          "type": "bermuda",
+          "creator": "Yan esteves",
+          "isPrinted": false,
+          "isEmbroidered": false
+        },
         {
           "modelId": 3,
           "name": "Talento",
@@ -30,7 +32,8 @@
           "creator": "Armanni Gucci",
           "isPrinted": false,
           "isEmbroidered": true
-        }]
+        }
+      ]
     },
     {
       "id": 2,

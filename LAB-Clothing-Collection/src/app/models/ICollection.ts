@@ -1,12 +1,12 @@
-import { Imodel } from './imodel';
+import { IModel } from './IModel';
 
-export interface Icollection {
-  id: number,
+export interface ICollection {
   brand: string,
   name: string,
   creator: string,
   budget: number,
   season : 'inverno' | 'verão' | 'primavera' | 'outono',
   year: number,
-  models: Imodel[]
+  models: IModel[]
+  id?: number,
 }
