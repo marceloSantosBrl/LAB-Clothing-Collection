@@ -13,6 +13,7 @@ import { SignInComponent } from './pages/sign/sign-in/sign-in.component';
 import { ForgotComponent } from './pages/sign/forgot/forgot.component';
 import { SignUpComponent } from './pages/sign/sign-up/sign-up.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,13 +21,13 @@ const routes: Routes = [
     path: '',
     component: FullComponent,
     children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'collection-listing', component: CollectionsListingComponent },
-      { path: 'collection-editing', component: CollectionsEditingComponent },
-      { path: 'collection-creating', component: CollectionsCreatingComponent },
-      { path: 'models-listing', component: ModelsListingComponent },
-      { path: 'models-editing', component: ModelsEditingComponent },
-      { path: 'models-creating', component: ModelsCreatingComponent },
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'collection-listing', component: CollectionsListingComponent, canActivate: [AuthGuard] },
+      { path: 'collection-editing', component: CollectionsEditingComponent, canActivate: [AuthGuard] },
+      { path: 'collection-creating', component: CollectionsCreatingComponent, canActivate: [AuthGuard] },
+      { path: 'models-listing', component: ModelsListingComponent, canActivate: [AuthGuard] },
+      { path: 'models-editing', component: ModelsEditingComponent, canActivate: [AuthGuard] },
+      { path: 'models-creating', component: ModelsCreatingComponent, canActivate: [AuthGuard] },
     ],
   },
   {
