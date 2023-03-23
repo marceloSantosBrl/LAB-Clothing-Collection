@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, retry } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { IServerData } from '../../models/iserver-data';
+import { IServerData } from '../../models/i-server-data';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class ServerConnectionService {
     return this._http.put(environment.API_URL, serverData)
       .pipe(catchError(
         () => {
-          throw new Error('Failed to receive Server Data');
+          throw new Error('Failed to update server Data');
         },
       ), retry({ count: 2, delay: 500 }));
   }
