@@ -6,3 +6,50 @@
 * {
   font-family: 'Inter', sans-serif;;
 }
+
+.debug {
+  outline: 1px solid red;
+}
+
+.icon-sm {
+  height: 1.5rem;
+  object-fit: cover;
+}
+
+.icon-md {
+  height: 2rem;
+  object-fit: cover;
+}
+
+.icon-xl {
+  height: 10rem;
+  object-fit: cover;
+}
+
+.header-container {
+  position: sticky;
+  top: 0;
+  display: flex;
+}
+
+.menu-container {
+  width: calc(100vw * (2/12));
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  display: none;
+}
+
+.login-container {
+  background-color: #EBF0FA;
+}
+
+@media (min-width: 992px) {
+  .menu-container {
+    display: flex;
+  }
+}
+
+body {
+  background-color: #EBF0FA;
+}

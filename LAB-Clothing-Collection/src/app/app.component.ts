@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth/auth.service';
 import { ServerConnectionService } from './services/server-connection/server-connection.service';
 
 @Component({
@@ -8,11 +9,11 @@ import { ServerConnectionService } from './services/server-connection/server-con
 })
 export class AppComponent implements OnInit {
   constructor(
-    public readonly _crud: ServerConnectionService,
+    public readonly _auth: AuthService,
+    public readonly _server: ServerConnectionService,
   ) { }
 
   ngOnInit() {
-    this._crud.getServerData()
-      .subscribe((value) => console.dir(value));
+    this._server.getServerData().subscribe((x) => console.log(x));
   }
 }

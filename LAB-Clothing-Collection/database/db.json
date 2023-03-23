@@ -63,5 +63,14 @@
         }
       ]
     }
+  ],
+  "credentials": [
+    {
+      "0": {
+        "email": "marcelo@senai.com.br",
+        "password": "123456789"
+      },
+      "id": 1
+    }
   ]
 }

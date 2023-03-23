@@ -5,12 +5,14 @@ import { IUserCredentials } from '../../models/i-user-credentials';
   providedIn: 'root',
 })
 export class AuthService {
-  private isUserValid(incomingCredential: IUserCredentials): boolean {
-    const credentialsArr = this.getUsersCredentials();
+  private isUserValid(
+    incomingCredential: IUserCredentials,
+    validCredentials: IUserCredentials[],
+  ): boolean {
     let credentialsMatch = false;
-    for (let i = 0; i < credentialsArr.length; i += 1) {
-      credentialsMatch = credentialsArr[i].email === incomingCredential.email
-        && credentialsArr[i].password === incomingCredential.password;
+    for (let i = 0; i < validCredentials.length; i += 1) {
+      credentialsMatch = validCredentials[i].email === incomingCredential.email
+        && validCredentials[i].password === incomingCredential.password;
       if (credentialsMatch) {
         return true;
       }
@@ -18,20 +20,12 @@ export class AuthService {
     return false;
   }
 
-  public addUserCredential(credential: IUserCredentials):void {
-    const newCredentials = this.getUsersCredentials();
-    newCredentials.push(credential);
-    window.localStorage
-      .setItem('credentials', JSON.stringify(newCredentials));
-  }
-
-  private getUsersCredentials(): IUserCredentials[] {
-    const credentialsStr = window.localStorage
-      .getItem('credentials')
-      ?? '[{"email":"marcelo@senai.com",'
-      + '"password":"123456789",'
-      + '"username":"marcelo"}]';
-    return JSON.parse(credentialsStr);
+  public addUserCredential(
+    credential: IUserCredentials,
+    previousCredentials: IUserCredentials[],
+  ):IUserCredentials[] {
+    previousCredentials.push(credential);
+    return previousCredentials;
   }
 
   public get isLogged(): boolean {
@@ -43,8 +37,11 @@ export class AuthService {
     window.localStorage.setItem('logged', loggingStatus.toString());
   }
 
-  public attemptLogin(incomingCredentials: IUserCredentials): void {
-    if (this.isUserValid(incomingCredentials)) {
+  public attemptLogin(
+    incomingCredentials: IUserCredentials,
+    validCredentials: IUserCredentials[],
+  ): void {
+    if (this.isUserValid(incomingCredentials, validCredentials)) {
       this.isLogged = true;
     }
   }

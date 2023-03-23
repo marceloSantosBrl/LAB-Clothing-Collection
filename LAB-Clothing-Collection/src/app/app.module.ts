@@ -18,6 +18,7 @@ import { ModelsListingComponent } from './pages/models/models-listing/models-lis
 import { ModelsCreatingComponent } from './pages/models/models-creating/models-creating.component';
 import { ModelsEditingComponent } from './pages/models/models-editing/models-editing.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     ModelsCreatingComponent,
     ModelsEditingComponent,
     NotFoundComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
