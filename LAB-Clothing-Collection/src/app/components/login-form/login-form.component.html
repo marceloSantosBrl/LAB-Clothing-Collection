@@ -12,15 +12,28 @@
       Insira suas credenciais para acessar sua conta
     </p>
   </div>
-  <form>
+  <form [formGroup]="insertedCredentials" (ngSubmit)="OnSubmit()">
     <div class="col mb-2">
-      <input class="form-control" type="email" placeholder="Informe seu e-mail">
+      <input class="form-control" type="email" placeholder="Informe seu e-mail"
+             formControlName="email">
+      <output class="col-12 mt-2 invisible">
+        <p class="text-start">
+          Email inválido
+        </p>
+      </output>
     </div>
     <div class="col mb-4">
-      <input class="form-control" type="password" placeholder="Informe sua senha">
+      <input class="form-control" type="password" placeholder="Informe sua senha"
+             formControlName="password">
+      <output class="col-12 mt-2 invisible">
+        <p class="text-start">
+          Senha inválida
+        </p>
+      </output>
     </div>
     <div class="col mb-2">
-      <button class="btn btn-primary w-50">
+      <button class="btn btn-primary w-50"
+              [disabled]="insertedCredentials.invalid">
         Entrar
       </button>
     </div>
@@ -30,7 +43,7 @@
       <span class="text-muted">
         Esqueceu sua senha?
       </span>
-      <a href="">
+      <a routerLink="/forgot">
         Redefinir senha
       </a>
     </div>
@@ -40,7 +53,7 @@
       <span class="text-muted">
         Ainda não tem uma conta?
       </span>
-      <a href="">
+      <a routerLink="/sign-up">
         Cadastre-se
       </a>
     </div>

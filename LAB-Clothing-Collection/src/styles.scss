@@ -4,7 +4,15 @@
 @import 'bootstrap/scss/bootstrap';
 
 * {
-  font-family: 'Inter', sans-serif;;
+  font-family: 'Inter', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body{
+  height:100%;
 }
 
 .debug {
@@ -24,6 +32,12 @@
 .icon-xl {
   height: 10rem;
   object-fit: cover;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .header-container {
@@ -52,4 +66,13 @@
 
 body {
   background-color: #EBF0FA;
+}
+
+.form-control.ng-invalid:not(.ng-pristine) {
+  @extend .is-invalid;
+}
+
+.form-control.ng-invalid:not(.ng-pristine) + output {
+  @extend .invalid-feedback;
+  visibility: visible !important;
 }

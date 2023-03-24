@@ -45,7 +45,10 @@ export class ServerConnectionService {
   }
 
   public updateUserCredentials(credentials: IUserCredentials[]): Observable<any> {
-    return this._http.put(environment.CREDENTIALS_URL, credentials)
+    return this._http.put(environment.CREDENTIALS_URL, {
+      id: 2,
+      credentials,
+    })
       .pipe(catchError(
         () => {
           throw new Error('Failed to update server credentials');
