@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { FullComponent } from './layouts/full/full.component';
 import { ContentComponent } from './layouts/content/content.component';
 import { SignInComponent } from './pages/sign/sign-in/sign-in.component';
-import { ForgotComponent } from './pages/sign/forgot/forgot.component';
+import { RecoverComponent } from './pages/sign/recover/recover.component';
 import { SignUpComponent } from './pages/sign/sign-up/sign-up.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CollectionsListingComponent } from './pages/collections/collections-listing/collections-listing.component';
@@ -21,6 +21,8 @@ import { ModelsEditingComponent } from './pages/models/models-editing/models-edi
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
+import { RecoverFormComponent } from './components/recover-form/recover-form.component';
+import { SuccessfulRecoverComponent } from './components/sucessfull-recover/successful-recover.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.comp
     FullComponent,
     ContentComponent,
     SignInComponent,
-    ForgotComponent,
+    RecoverComponent,
     SignUpComponent,
     HomeComponent,
     CollectionsListingComponent,
@@ -40,6 +42,8 @@ import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.comp
     NotFoundComponent,
     LoginFormComponent,
     SignUpFormComponent,
+    RecoverFormComponent,
+    SuccessfulRecoverComponent,
   ],
   imports: [
     BrowserModule,

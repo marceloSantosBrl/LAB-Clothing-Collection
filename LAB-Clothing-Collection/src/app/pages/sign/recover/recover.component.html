@@ -1,0 +1,6 @@
+<ng-container *ngIf="!secondPage; else success">
+  <app-recover-form (submitEvent)="emailSender($event)"></app-recover-form>
+</ng-container>
+<ng-template #success>
+  <app-successful-recover (backSignal)="secondPage = false" [email]="email"></app-successful-recover>
+</ng-template>

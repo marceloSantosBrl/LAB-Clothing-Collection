@@ -1,0 +1,29 @@
+<form class="container-fluid  flex-column align-items-center rounded-4 bg-white p-4">
+  <div class="row">
+    <div class="col-6 col-lg-2 order-lg-1 d-flex justify-content-start align-items-center">
+      <button class="btn btn-link"
+      (click)="backHandler()">
+        <img class="icon-md" src="assets/arrow-left.svg" alt="seta-esquerda">
+      </button>
+    </div>
+    <div class="col-6 col-lg-12 order-lg-0 mb-lg-4 d-flex justify-content-end justify-content-lg-center align-items-center">
+      <img class="img-fluid" src="assets/audaces-logo.svg" alt="logo-audaces">
+    </div>
+    <div class="col-12 col-lg-8 order-lg-2 text-center">
+      <h1>Redefinir Senha</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8 offset-2 text-center text-muted">
+      <p>
+        Um link para redefinição de senha foi enviado para o e-mail {{email}}.
+      </p>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-6 offset-3">
+      <button class="btn btn-primary">Ir para login</button>
+    </div>
+  </div>
+</form>
+

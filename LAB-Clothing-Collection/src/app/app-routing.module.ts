@@ -10,7 +10,7 @@ import { ModelsEditingComponent } from './pages/models/models-editing/models-edi
 import { ModelsCreatingComponent } from './pages/models/models-creating/models-creating.component';
 import { ContentComponent } from './layouts/content/content.component';
 import { SignInComponent } from './pages/sign/sign-in/sign-in.component';
-import { ForgotComponent } from './pages/sign/forgot/forgot.component';
+import { RecoverComponent } from './pages/sign/recover/recover.component';
 import { SignUpComponent } from './pages/sign/sign-up/sign-up.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -35,7 +35,7 @@ const routes: Routes = [
     component: ContentComponent,
     children: [
       { path: 'sign-in', component: SignInComponent },
-      { path: 'forgot', component: ForgotComponent },
+      { path: 'recover', component: RecoverComponent },
       { path: 'sign-up', component: SignUpComponent },
     ],
   },
