@@ -1,2 +1,12 @@
-<p>Full works</p>
-<router-outlet></router-outlet>
+<div class="col-2 fixed-top d-none d-lg-block">
+  <app-menu class="min-vh-100"></app-menu>
+</div>
+<app-header (clickEvent)="_offCanvas.open(canvas)" class="sticky-top"></app-header>
+<div class="container-fluid">
+  <main class="col-12 col-lg-10 offset-lg-2">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+<ng-template #canvas>
+  <app-menu></app-menu>
+</ng-template>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-full',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./full.component.scss'],
 })
 export class FullComponent {
-
+  constructor(
+    public readonly _offCanvas: NgbOffcanvas,
+  ) { }
 }

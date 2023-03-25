@@ -1,0 +1,42 @@
+<nav class="container-fluid p-3 bg-white shadow-lg d-flex">
+  <div class="d-lg-none">
+    <button class="btn btn-link d-lg-none"
+            (click)="clickEvent.emit()">
+      <img class="icon-md" src="assets/list.svg" alt="hamburger">
+    </button>
+  </div>
+  <a class="d-flex d-lg-none flex-grow-1 flex-lg-grow-0 justify-content-end">
+    <img src="assets/audaces-logo-expanded.svg" alt="logo">
+  </a>
+  <div class="d-none d-lg-flex justify-content-end flex-grow-1 gap-3 align-items-center">
+    <a href="">
+      <img class="icon-sm" src="assets/bell-fill.svg" alt="notifications">
+    </a>
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn" type="button" ngbDropdownToggle>
+        <img class="w-100" src="assets/person-fill.svg" alt="user">
+      </button>
+      <ul class="list-unstyled" ngbDropdownMenu>
+        <li ngbDropdownItem>
+          <a class="d-flex align-items-center gap-2 dropdown-item" href="#">
+            <img src="assets/person-fill.svg" alt="avatar">
+            <p class="m-0">Conta</p>
+          </a>
+        </li>
+        <li ngbDropdownItem>
+          <a class="d-flex align-items-center gap-2 dropdown-item" href="#">
+            <img src="assets/gear-fill.svg" alt="engrenagem">
+            <p class="m-0">Configurações</p>
+          </a>
+        </li>
+        <li ngbDropdownItem>
+          <a class="d-flex align-items-center gap-2 dropdown-item" href="#"
+             (click)="logoffHandler()">
+            <img src="assets/box-arrow-right.svg" alt="porta">
+            <p class="m-0">Sair</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -23,6 +23,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { RecoverFormComponent } from './components/recover-form/recover-form.component';
 import { SuccessfulRecoverComponent } from './components/sucessfull-recover/successful-recover.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { SuccessfulRecoverComponent } from './components/sucessfull-recover/succ
     SignUpFormComponent,
     RecoverFormComponent,
     SuccessfulRecoverComponent,
+    HeaderComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
