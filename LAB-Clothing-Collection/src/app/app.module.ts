@@ -20,6 +20,7 @@ import { ModelsCreatingComponent } from './pages/models/models-creating/models-c
 import { ModelsEditingComponent } from './pages/models/models-editing/models-editing.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     ModelsEditingComponent,
     NotFoundComponent,
     LoginFormComponent,
+    SignUpFormComponent,
   ],
   imports: [
     BrowserModule,

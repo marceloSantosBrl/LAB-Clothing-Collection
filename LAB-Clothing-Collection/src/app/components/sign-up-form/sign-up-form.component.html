@@ -1,0 +1,92 @@
+<form class="text-center bg-white rounded-4 p-4"
+      [formGroup]="signUpForm"
+      (ngSubmit)="submitHandler()">
+  <div class="row mb-3">
+    <div class="col-12">
+      <img src="assets/audaces-logo.svg" alt="logo-audaces">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>Sign Up</h1>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-12">
+      <p class="text-muted">
+        Insira seus dados para criar uma conta
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-10 offset-lg-1 mb-3">
+      <input class="form-control w-100" type="text" placeholder="Nome"
+             formControlName="name">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Nome inválido
+        </p>
+      </output>
+    </div>
+    <div class="col-12 col-lg-10 offset-lg-1 mb-3">
+      <input class="form-control w-100" type="text" placeholder="Empresa"
+             formControlName="businessName">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Nome da empresa inválido
+        </p>
+      </output>
+    </div>
+    <div class="col-12 col-lg-10 offset-lg-1 mb-3">
+      <input class="form-control w-100" type="text" placeholder="CNPJ"
+             formControlName="cnpj">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          CNPJ inválido
+        </p>
+      </output>
+    </div>
+    <div class="col-12 col-lg-10 offset-lg-1 mb-3">
+      <input class="form-control w-100" type="email" placeholder="Informe seu e-mail"
+             formControlName="email">      <output class="col-12 mt-2 d-none">
+      <p class="text-start">
+        E-mail inválido
+      </p>
+    </output>
+    </div>
+    <div class="col-12 col-lg-5 offset-lg-1 mb-3">
+      <input class="form-control w-100" type="password" placeholder="Senha"
+             formControlName="password">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Senha Inválida
+        </p>
+      </output>
+    </div>
+    <div class="col-12 col-lg-5 mb-3">
+      <input class="form-control w-100" type="password" placeholder="Confirmar senha"
+             formControlName="confirmPassword">
+      <output class="col-12 mt-2 d-none"
+              [ngClass]="{'password-feedback': !arePasswordsEquals() &&
+              signUpForm.controls.confirmPassword.touched}">
+        <p class="text-start">
+          Senhas não conferem
+        </p>
+      </output>
+    </div>
+    <div class="col-8 offset-2 col-lg-6 offset-lg-3 mb-3">
+      <button type="submit" class="btn btn-primary"
+              [disabled]="signUpForm.invalid || !arePasswordsEquals()">Criar Conta</button>
+    </div>
+    <div class="row">
+      <div class="col p-3">
+      <span class="text-muted">
+        Já possui uma uma conta?
+      </span>
+        <a routerLink="/sign-in">
+          Realizar login
+        </a>
+      </div>
+    </div>
+  </div>
+</form>

@@ -68,11 +68,12 @@ body {
   background-color: #EBF0FA;
 }
 
-.form-control.ng-invalid:not(.ng-pristine) {
-  @extend .is-invalid;
+.form-control.ng-invalid.ng-touched {
+  @extend .is-invalid !optional;
 }
 
-.form-control.ng-invalid:not(.ng-pristine) + output {
-  @extend .invalid-feedback;
-  visibility: visible !important;
+.form-control.ng-invalid.ng-touched + output,
+.password-feedback {
+  @extend .invalid-feedback !optional;
+  display: block !important;
 }

@@ -1,1 +1,12 @@
-<p>sign-up works!</p>
+<app-sign-up-form (submitEvent)="submitHandler($event)"></app-sign-up-form>
+<ng-template #modal let-content>
+  <div class="modal-body">
+    <div class="modal-header d-flex justify-content-center">
+      <p>{{modalMessage}}</p>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button class="btn btn-primary"
+              (click)="content.dismiss('click')">Ok</button>
+    </div>
+  </div>
+</ng-template>

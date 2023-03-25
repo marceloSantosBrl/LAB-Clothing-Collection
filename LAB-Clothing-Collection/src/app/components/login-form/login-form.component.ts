@@ -8,20 +8,20 @@ import { IUserCredentials } from '../../models/i-user-credentials';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-  @Output() sendEvent = new EventEmitter<IUserCredentials>();
+  @Output('submitEvent') submitEvent = new EventEmitter<IUserCredentials>();
 
-  public insertedCredentials = this._fb.group({
+  public insertedCredentials = this._nfb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   constructor(
-    private readonly _fb: NonNullableFormBuilder,
+    private readonly _nfb: NonNullableFormBuilder,
   ) { }
 
   public OnSubmit() {
     if (this.insertedCredentials.valid) {
-      this.sendEvent.emit(
+      this.submitEvent.emit(
         this.insertedCredentials.value as IUserCredentials,
       );
     }
