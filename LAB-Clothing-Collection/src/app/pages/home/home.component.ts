@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ServerConnectionService } from '../../services/server-connection/server-connection.service';
 import { IServerData } from '../../models/i-server-data';
 import { ServerData } from '../../../utils/classes/server-data';
+import testObject from '../../../test-artifacts/objects';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,8 @@ import { ServerData } from '../../../utils/classes/server-data';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  public testObject = testObject;
+
   public serverData!: IServerData;
 
   public delSub!: Subscription;
@@ -22,9 +25,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.delSub = this._server.getServerData()
-      .subscribe((value) => {
-        this.serverData = value;
-      });
+      .subscribe(
+        {
+          next: (value) => {
+            this.serverData = value;
+          },
+          error: () => alert('Falha ao se conectar com o servidor'),
+        },
+      );
   }
 
   ngOnDestroy() {

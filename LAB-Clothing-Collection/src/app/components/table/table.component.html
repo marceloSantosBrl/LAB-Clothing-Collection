@@ -1,0 +1,22 @@
+<div class="table-responsive-lg">
+  <table class="table caption-top table-hover">
+    <caption>Maiores Orçamentos</caption>
+    <thead>
+    <tr>
+      <th *ngFor="let item of colsName" scope="col">
+        {{item}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="mode === 'dashboard'">
+      <tr *ngFor="let collection of data.collections | filterTop: 10">
+        <th scope="row">{{collection.name}}</th>
+        <td>{{collection.creator}}</td>
+        <td>{{serverData.findModels(collection.name, data).length}}</td>
+        <td>{{collection.budget}}</td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

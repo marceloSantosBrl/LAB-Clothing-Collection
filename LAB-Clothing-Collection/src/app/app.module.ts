@@ -26,6 +26,8 @@ import { SuccessfulRecoverComponent } from './components/sucessfull-recover/succ
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CardComponent } from './components/card/card.component';
+import { TableComponent } from './components/table/table.component';
+import { FilterTopPipe } from './pipes/filter-top.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { CardComponent } from './components/card/card.component';
     HeaderComponent,
     MenuComponent,
     CardComponent,
+    TableComponent,
+    FilterTopPipe,
   ],
   imports: [
     BrowserModule,
