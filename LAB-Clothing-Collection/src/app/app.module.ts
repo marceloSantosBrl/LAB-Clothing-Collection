@@ -28,6 +28,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CardComponent } from './components/card/card.component';
 import { TableComponent } from './components/table/table.component';
 import { FilterTopPipe } from './pipes/filter-top.pipe';
+import { CollectionFormComponent } from './components/collection-form/collection-form.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { FilterTopPipe } from './pipes/filter-top.pipe';
     CardComponent,
     TableComponent,
     FilterTopPipe,
+    CollectionFormComponent,
   ],
   imports: [
     BrowserModule,

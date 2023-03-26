@@ -1,4 +1,4 @@
-import { ICollection } from '../app/models/i -collection';
+import { ICollection } from '../app/models/i-collection';
 import { IServerData } from '../app/models/i-server-data';
 import { IModel } from '../app/models/i-model';
 
@@ -92,7 +92,7 @@ const collections: ICollection[] = [
     year: 2003,
   },
   {
-    name: 'Gucci Prime',
+    name: 'Gucci',
     brand: 'Gucci',
     creator: 'Andre Sulart',
     budget: 444500,

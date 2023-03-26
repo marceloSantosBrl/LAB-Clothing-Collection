@@ -12,9 +12,9 @@ export class TableComponent {
 
   @Input('colsName') public colsName!: string[];
 
+  @Input('caption') public caption = '';
+
   @Input('data') public data!: IServerData;
 
   @Input('mode') public mode!: string;
-
-  @Input('clickable') public clickable: boolean = false;
 }

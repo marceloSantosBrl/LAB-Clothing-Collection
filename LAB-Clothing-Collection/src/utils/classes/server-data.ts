@@ -1,4 +1,4 @@
-import { ICollection } from '../../app/models/i -collection';
+import { ICollection } from '../../app/models/i-collection';
 import { IServerData } from '../../app/models/i-server-data';
 import { IModel } from '../../app/models/i-model';
 
@@ -65,6 +65,9 @@ export class ServerData {
     const { collections } = serverData;
     const newCollectionArray = collections
       .filter((collection) => collection.name !== collectionName);
+    if (newCollectionArray.length === collections.length) {
+      throw new Error('Collection doesn\'t exist');
+    }
     return {
       models: serverData.models,
       collections: newCollectionArray,

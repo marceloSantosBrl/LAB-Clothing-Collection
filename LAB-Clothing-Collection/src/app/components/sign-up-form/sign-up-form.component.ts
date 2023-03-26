@@ -11,7 +11,7 @@ export class SignUpFormComponent {
   @Output('submitEvent') submitEvent = new EventEmitter<IUserCredentials>();
 
   public readonly signUpForm = this._nfb.group({
-    name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+    name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ç]+$/)]],
     businessName: ['', [Validators.required, Validators.minLength(3)]],
     cnpj: ['', [Validators.required,
       Validators.minLength(14), Validators.pattern(/^[0-9 .]+$/)]],

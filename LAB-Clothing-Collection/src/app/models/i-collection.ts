@@ -5,5 +5,5 @@ export interface ICollection {
   budget: number,
   season : 'inverno' | 'verão' | 'primavera' | 'outono',
   year: number,
-  CollectionId?: number,
+  collectionId?: number,
 }

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ICollection } from '../models/i -collection';
+import { ICollection } from '../models/i-collection';
 
 @Pipe({
   name: 'filterTop',
