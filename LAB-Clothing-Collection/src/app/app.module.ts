@@ -25,6 +25,7 @@ import { RecoverFormComponent } from './components/recover-form/recover-form.com
 import { SuccessfulRecoverComponent } from './components/sucessfull-recover/successful-recover.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { MenuComponent } from './components/menu/menu.component';
     SuccessfulRecoverComponent,
     HeaderComponent,
     MenuComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

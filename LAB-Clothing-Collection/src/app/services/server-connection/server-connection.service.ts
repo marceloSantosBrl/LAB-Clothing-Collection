@@ -14,8 +14,8 @@ export class ServerConnectionService {
     private readonly _http: HttpClient,
   ) { }
 
-  public getServerData(): Observable<IServerData[]> {
-    return this._http.get<IServerData[]>(environment.API_URL)
+  public getServerData(): Observable<IServerData> {
+    return this._http.get<IServerData>(environment.API_URL)
       .pipe(catchError(
         () => {
           throw new Error('Failed to receive data from the server');

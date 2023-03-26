@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ServerConnectionService } from '../../services/server-connection/server-connection.service';
+import { IServerData } from '../../models/i-server-data';
+import { ServerData } from '../../../utils/classes/server-data';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  public serverData!: IServerData;
 
+  public delSub!: Subscription;
+
+  public ServerData = ServerData;
+
+  constructor(
+    public _server: ServerConnectionService,
+  ) { }
+
+  ngOnInit() {
+    this.delSub = this._server.getServerData()
+      .subscribe((value) => {
+        this.serverData = value;
+      });
+  }
+
+  ngOnDestroy() {
+    this.delSub.unsubscribe();
+  }
 }
