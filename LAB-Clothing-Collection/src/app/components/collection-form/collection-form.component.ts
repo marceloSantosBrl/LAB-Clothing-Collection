@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { ICollection } from '../../models/i-collection';
 import { CustomMath } from '../../../utils/classes/CustomMath';
 
@@ -34,6 +35,7 @@ export class CollectionFormComponent implements OnInit {
   constructor(
     private readonly _nfb: NonNullableFormBuilder,
     public readonly _modal: NgbModal,
+    public readonly _router: Router,
   ) { }
 
   public ngOnInit() {

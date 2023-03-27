@@ -76,7 +76,7 @@
       <img class="icon-xl" src="assets/clothes.svg" alt="clothes">
     </div>
     <div class="row g-3"
-         *ngIf="type === 'editing'">
+         *ngIf="type === 'editing'; else createButton">
       <div class="col-12 col-lg-8 text-center text-lg-start">
         <button type="submit" class="btn btn-primary"
                 [disabled]="collectionForm.invalid">
@@ -107,6 +107,22 @@
     <div class="modal-footer d-flex justify-content-center">
       <button class="btn btn-danger"
               (click)="deletModalHandler()">Ok</button>
+    </div>
+  </div>
+</ng-template>
+<ng-template #createButton>
+  <div class="row justify-content-lg-end">
+    <div class="col-12 col-lg-2">
+      <button type="button" class="btn btn-secondary"
+              (click)="_router.navigate(['/collection-listing'])">
+        Cancelar
+      </button>
+    </div>
+    <div class="col-12 col-lg-2">
+      <button type="submit" class="btn btn-primary"
+              [disabled] = "collectionForm.invalid">
+        Salvar
+      </button>
     </div>
   </div>
 </ng-template>

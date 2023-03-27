@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { ServerConnectionService } from '../../../services/server-connection/server-connection.service';
 import { IServerData } from '../../../models/i-server-data';
 import { ServerData } from '../../../../utils/classes/server-data';
@@ -29,6 +30,7 @@ export class ModelsCreatingComponent implements OnInit, OnDestroy {
   constructor(
     private readonly _server: ServerConnectionService,
     private readonly _modal: NgbModal,
+    public readonly _router: Router,
   ) { }
 
   public ngOnInit() {
@@ -43,11 +45,19 @@ export class ModelsCreatingComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this.deleteGetSubscription.unsubscribe();
+    if (this.deletePutSubscription) {
+      this.deletePutSubscription.unsubscribe();
+    }
   }
 
   private openModal(modalMessage: string): void {
     this.modalMessage = modalMessage;
     this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
+  }
+
+  public handleModal() {
+    this._modal.dismissAll();
+    this._router.navigate(['/models-listing']);
   }
 
   public handleSubmit(model: IModel): void {
