@@ -67,7 +67,7 @@
       <div class="col-12 col-lg-2 text-center">
         <button type="button" class="btn btn-danger"
                 (click)="_modal.open(modal, {centered: true, size: 'sm'})"
-                [disabled] = collectionForm.get('name').invalid>
+                [disabled] = "collectionForm.get('name')!.invalid">
           Excluir
         </button>
       </div>
