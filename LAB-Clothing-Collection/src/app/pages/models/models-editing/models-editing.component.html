@@ -1,1 +1,30 @@
-<p>models-editing works!</p>
+<ng-container *ngIf="serverHelper.getModel(modelName, serverData) as modelData">
+  <app-models-form
+    formType="editing"
+    (submitEvent)="handleSubmit($event)"
+    (deleteEvent)="handleDelete()"
+    [modelData]="modelData"
+    [collectionsName]="serverHelper.getCollectionsNames(serverData)"></app-models-form>
+</ng-container>
+<ng-template #modal let-content>
+  <div class="modal-body">
+    <div class="modal-header d-flex justify-content-center">
+      <p>{{modalMessage}}</p>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button class="btn btn-primary"
+              (click)="content.dismiss('click')">Ok</button>
+    </div>
+  </div>
+</ng-template>
+<ng-template #dangerModal let-content>
+  <div class="modal-body">
+    <div class="modal-header d-flex justify-content-center">
+      <p>A seguinte ação irá remover o modelo. Deseja continuar?</p>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button class="btn btn-danger"
+              (click)="handleDeleteModal()">Ok</button>
+    </div>
+  </div>
+</ng-template>

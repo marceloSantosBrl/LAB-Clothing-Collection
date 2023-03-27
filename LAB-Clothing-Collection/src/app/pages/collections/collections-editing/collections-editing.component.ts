@@ -19,11 +19,13 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
 
   public serverData!: IServerData;
 
-  public collectionName: string | null = '';
+  public collectionName: string = '';
 
   public delGetSubscription!: Subscription;
 
   public delPutSubscription!: Subscription;
+
+  public delDeleteSubscription!: Subscription;
 
   public modalMessage: string = '';
 
@@ -47,7 +49,7 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.collectionName = this._activatedRoute.snapshot.queryParamMap.get('name');
+    this.collectionName = this._activatedRoute.snapshot.queryParamMap.get('name') ?? '';
     this.delGetSubscription = this._server.getServerData()
       .subscribe({
         next: (data) => {
@@ -58,19 +60,20 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
   }
 
   public handleSend(collection: ICollection): void {
+    let deletedCollectionData: IServerData;
     let newServerData: IServerData;
     try {
-      newServerData = this.serverHelper.editCollection(collection, this.serverData);
+      deletedCollectionData = this.serverHelper
+        .deleteCollection(this.collectionName, this.serverData);
+      newServerData = this.serverHelper.addCollection(collection, deletedCollectionData);
     } catch (e) {
-      this.modalMessage = 'Coleção não existe';
-      this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
+      this.openModal('Coleção Não existe');
       return;
     }
     this.delPutSubscription = this._server.updateServerData(newServerData)
       .subscribe({
         next: () => {
-          this.modalMessage = 'Coleção Alterada com sucesso';
-          this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
+          this.openModal('Coleção Alterada com sucesso');
         },
         error: () => alert('Falha ao se conectar com o servidor'),
       });
@@ -80,31 +83,36 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
     this._router.navigate(['/collection-listing']);
   }
 
-  public handleDelete(collectionName: string): void {
+  public handleDelete(): void {
     let newServerData: IServerData;
     try {
-      newServerData = this.serverHelper.deleteCollection(collectionName, this.serverData);
+      newServerData = this.serverHelper.deleteCollection(this.collectionName, this.serverData);
     } catch (e) {
-      this.modalMessage = 'Coleção não encontrada';
       alert('coleção não encontrada');
-      this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
       return;
     }
-    this._server.updateServerData(newServerData)
+    this.delDeleteSubscription = this._server.updateServerData(newServerData)
       .subscribe({
         next: () => {
-          this.modalMessage = 'Coleção excluída com sucesso';
-          this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
+          this.openModal('Coleção excluída com sucesso');
           this._router.navigate(['collection-listing']);
         },
         error: () => alert('Falha ao se conectar com o servidor'),
       });
   }
 
+  private openModal(modalMessage: string) {
+    this.modalMessage = modalMessage;
+    this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
+  }
+
   ngOnDestroy() {
     this.delGetSubscription.unsubscribe();
     if (this.delPutSubscription) {
       this.delPutSubscription.unsubscribe();
+    }
+    if (this.delDeleteSubscription) {
+      this.delDeleteSubscription.unsubscribe();
     }
   }
 }

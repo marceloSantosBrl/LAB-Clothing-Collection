@@ -1,0 +1,107 @@
+<form class="container-fluid rounded-2 bg-white shadow-lg p-2 pb-3"
+      [formGroup]="modelForm"
+      (ngSubmit)="submitHandler()">
+  <div class="row g-3 mb-3">
+    <div class="col-12 col-lg-6">
+      <label class="form-label" for="name">Nome do Modelo</label>
+      <input class="form-control" type="text" id="name"
+             formControlName="name">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Digite um nome de modelo válido
+        </p>
+      </output>
+    </div>
+    <div class="col-12 col-lg-6">
+      <label class="form-label" for="type">Tipo do Modelo</label>
+      <select class="form-select text-capitalize" id="type"
+              formControlName = "type">
+        <ng-container *ngFor="let item of clothingTypes">
+          <option [value]="item" selected>{{item}}</option>
+        </ng-container>
+      </select>
+    </div>
+  </div>
+  <div class="row g-3 mb-3">
+    <div class="col-12 col-lg-6">
+      <label class="form-label" for="collection">Selecionar Colecao</label>
+      <select class="form-select text-capitalize" id="collection"
+              formControlName="collection">
+        <ng-container *ngFor="let item of collectionsName">
+          <option [value]="item" selected>{{item}}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="col-12 col-lg-6">
+      <label class="form-label" for="creator">Responsável pelo modelo</label>
+      <input class="form-control" type="text" id="creator"
+             formControlName="creator">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Digite um nome de responsável válido
+        </p>
+      </output>
+    </div>
+  </div>
+  <div class="row">
+    <fieldset class="col-12 col-lg-6 g-3 mb-3 text-center">
+      <legend>Possui bordado?</legend>
+      <div class="row">
+        <div class="col-3 offset-3 d-flex justify-content-center align-items-center">
+          <input class="form-check-input m-2" type="radio" id="isEmbroidered" name="isEmbroidered"
+                 [value]="true"
+                 formControlName="isEmbroidered"/>
+          <label class="form-check-label" for="isEmbroidered">Sim</label>
+        </div>
+        <div class="col-3 d-flex justify-content-center align-items-center">
+          <input class="form-check-input m-2" type="radio" id="isNotEmbroidered" name="isEmbroidered"
+                 [value]="false"
+                 formControlName="isEmbroidered"/>
+          <label class="form-check-label" for="isNotEmbroidered">Não</label>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="col-12 col-lg-6 g-3 mb-3 text-center">
+      <legend>Possui estampa?</legend>
+      <div class="row">
+        <div class="col-3 offset-3 d-flex justify-content-center align-items-center">
+          <input class="form-check-input m-2" type="radio" id="isPrinted" name="isPrinted"
+                 [value]="true"
+                 formControlName="isPrinted"/>
+          <label class="form-check-label" for="isPrinted">Sim</label>
+        </div>
+        <div class="col-3 d-flex justify-content-center align-items-center">
+          <input class="form-check-input m-2" type="radio" id="isNotPrinted" name="isPrinted"
+                 [value]="false"
+                 formControlName="isPrinted"/>
+          <label class="form-check-label" for="isNotPrinted">Não</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="container-fluid d-none d-lg-flex justify-content-center align-items-center mt-2 mb-2">
+    <img class="icon-xl" src="assets/clothes.svg" alt="roupas">
+  </div>
+  <div class="row g-3"
+       *ngIf="formType === 'editing'">
+    <div class="col-12 col-lg-6 text-center">
+      <button type="submit" class="btn btn-primary"
+              [disabled] = "modelForm.invalid">
+        Atualizar
+      </button>
+    </div>
+    <div class="col-12 col-lg-2 offset-lg-2 text-center">
+      <button type="button" class="btn btn-secondary"
+              (click)="_router.navigate(['/models-listing'])">
+        Cancelar
+      </button>
+    </div>
+    <div class="col-12 col-lg-2 text-center">
+      <button type="button" class="btn btn-danger"
+              [disabled]="modelForm.get('name')?.invalid ?? true"
+              (click)="deleteEvent.emit()">
+        Excluir
+      </button>
+    </div>
+  </div>
+</form>

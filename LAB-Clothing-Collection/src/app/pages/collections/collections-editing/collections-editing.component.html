@@ -2,7 +2,7 @@
   <app-collection-form [data]="collection"
                        type="editing"
                        (sendEvent)="handleSend($event)"
-                       (deleteClick)="handleDelete($event)"
+                       (deleteClick)="handleDelete()"
                        (cancelClick)="handleCancel()"></app-collection-form>
 </ng-container>
 <ng-template #modal let-content>
