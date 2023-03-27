@@ -53,7 +53,8 @@
     <div class="row g-3"
          *ngIf="type === 'editing'">
       <div class="col-12 col-lg-8 text-center text-lg-start">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary"
+                [disabled]="collectionForm.invalid">
           Atualizar
         </button>
       </div>
@@ -65,7 +66,8 @@
       </div>
       <div class="col-12 col-lg-2 text-center">
         <button type="button" class="btn btn-danger"
-                (click)="_modal.open(modal, {centered: true, size: 'sm'})">
+                (click)="_modal.open(modal, {centered: true, size: 'sm'})"
+                [disabled] = collectionForm.get('name').invalid>
           Excluir
         </button>
       </div>
