@@ -83,7 +83,7 @@
     <img class="icon-xl" src="assets/clothes.svg" alt="roupas">
   </div>
   <div class="row g-3"
-       *ngIf="formType === 'editing'">
+       *ngIf="formType === 'editing'; else saveTemplate">
     <div class="col-12 col-lg-6 text-center">
       <button type="submit" class="btn btn-primary"
               [disabled] = "modelForm.invalid">
@@ -105,3 +105,19 @@
     </div>
   </div>
 </form>
+<ng-template #saveTemplate>
+  <div class="row justify-content-lg-end">
+    <div class="col-12 col-lg-2">
+      <button type="button" class="btn btn-secondary"
+              (click)="_router.navigate(['/models-listing'])">
+        Cancelar
+      </button>
+    </div>
+    <div class="col-12 col-lg-2">
+      <button type="submit" class="btn btn-primary"
+              [disabled] = "modelForm.invalid">
+        Salvar
+      </button>
+    </div>
+  </div>
+</ng-template>

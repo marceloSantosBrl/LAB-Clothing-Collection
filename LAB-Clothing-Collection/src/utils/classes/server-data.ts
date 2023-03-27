@@ -11,6 +11,15 @@ export class ServerData {
     throw new Error('Model doesn\'t exist');
   }
 
+  public static getNewId(models: IModel[]): number {
+    for (let i = 0; i < models.length; i += 1) {
+      if (i !== models[i].modelId) {
+        return i;
+      }
+    }
+    return models.length;
+  }
+
   public static getCollectionsNames(serverData: IServerData): string[] {
     return serverData.collections.map((collection) => collection.name);
   }
@@ -80,7 +89,7 @@ export class ServerData {
 
   public static addModel(model: IModel, serverData: IServerData): IServerData {
     const isModelExistent = this
-      .getCollectionId(model.name, serverData) !== -1;
+      .finModelId(model.name, serverData) !== -1;
     if (!isModelExistent) {
       serverData.models.push(model);
       return serverData;
