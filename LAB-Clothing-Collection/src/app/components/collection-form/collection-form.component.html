@@ -7,12 +7,22 @@
       <input class="form-control" type="text" id="name"
              [value]="data.name"
              formControlName="name">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Nome da coleção é necessário.
+        </p>
+      </output>
     </div>
     <div class="col-12 col-lg-6">
       <label class="form-label" for="creator">Responsável pela Coleção</label>
       <input class="form-control" type="text" id="creator" value="Yan Esteves"
              [value] = "data.creator"
              formControlName="creator">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Nome do responsável inválido
+        </p>
+      </output>
     </div>
   </div>
   <div class="row g-3 mb-3">
@@ -32,6 +42,11 @@
       <input class="form-control" type="text" id="brand" value="Adidas"
              [value] = "data.brand"
              formControlName="brand">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Nome da marca inválido
+        </p>
+      </output>
     </div>
   </div>
   <div class="row g-3 mb-3">
@@ -40,12 +55,22 @@
       <input class="form-control" type="number" id="budget" value="9800"
              [value] = "data.budget"
              formControlName="budget">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Valor do orçamento é necessário
+        </p>
+      </output>
     </div>
     <div class="col-12 col-lg-6">
       <label class="form-label" for="year">Ano de lançamento</label>
       <input class="form-control" type="number" id="year" value="2023"
              [value] = "data.year"
              formControlName="year">
+      <output class="col-12 mt-2 d-none">
+        <p class="text-start">
+          Ano do lançamento é necessário
+        </p>
+      </output>
     </div>
     <div class="container-fluid d-none d-lg-flex justify-content-center align-items-center mt-2 mb-2">
       <img class="icon-xl" src="assets/clothes.svg" alt="clothes">
