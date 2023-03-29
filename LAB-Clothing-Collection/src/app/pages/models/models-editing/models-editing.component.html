@@ -1,13 +1,15 @@
 <ng-container *ngIf="serverHelper.getModel(modelName, serverData) as modelData">
-  <app-models-form
-    formType="editing"
-    (submitEvent)="handleSubmit($event)"
-    (deleteEvent)="handleDelete()"
-    [modelData]="modelData"
-    [collectionsName]="serverHelper.getCollectionsNames(serverData)"></app-models-form>
+  <div class="container-fluid mt-5">
+    <app-models-form
+      formType="editing"
+      (submitEvent)="handleSubmit($event)"
+      (deleteEvent)="handleDelete()"
+      [modelData]="modelData"
+      [collectionsName]="serverHelper.getCollectionsNames(serverData)"></app-models-form>
+  </div>
 </ng-container>
 <ng-template #modal let-content>
-  <div class="modal-body">
+  <div class="modal-body text-center">
     <div class="modal-header d-flex justify-content-center">
       <p>{{modalMessage}}</p>
     </div>

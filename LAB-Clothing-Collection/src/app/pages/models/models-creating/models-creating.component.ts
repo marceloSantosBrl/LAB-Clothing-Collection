@@ -65,7 +65,7 @@ export class ModelsCreatingComponent implements OnInit, OnDestroy {
     newModel.modelId = this.serverHelper.getNewId(this.serverData.models);
     let newServerData: IServerData;
     try {
-      newServerData = this.serverHelper.addModel(model, this.serverData);
+      newServerData = this.serverHelper.addModel(newModel, this.serverData);
     } catch (e) {
       this.openModal('Modelo com esse nome já existe');
       return;

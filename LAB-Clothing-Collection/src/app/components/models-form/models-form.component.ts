@@ -40,7 +40,8 @@ export class ModelsFormComponent implements OnInit {
     this.modelForm = this._nfb.group({
       name: [this.modelData.name, Validators.required],
       type: [this.modelData.type, Validators.required],
-      creator: [this.modelData.creator, [Validators.required, Validators.pattern(/^[a-zA-Z ç]+$/)]],
+      creator: [this.modelData.creator, [Validators.required,
+        Validators.pattern(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/)]],
       collection: [this.modelData.collection, Validators.required],
       isEmbroidered: [this.modelData.isEmbroidered, Validators.required],
       isPrinted: [this.modelData.isPrinted, Validators.required],
