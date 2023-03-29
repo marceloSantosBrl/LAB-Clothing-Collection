@@ -28,8 +28,6 @@ export class CollectionFormComponent implements OnInit {
 
   @Output('deleteClick') public deleteClick = new EventEmitter<string>();
 
-  @Output('cancelClick') public cancelClick = new EventEmitter<any>();
-
   public collectionForm!:FormGroup;
 
   constructor(
@@ -41,7 +39,8 @@ export class CollectionFormComponent implements OnInit {
   public ngOnInit() {
     this.collectionForm = this._nfb.group({
       name: [this.data.name, [Validators.required]],
-      creator: [this.data.creator, [Validators.required, Validators.pattern(/^[a-zA-Z ç]+$/)]],
+      creator: [this.data.creator, [Validators.required,
+        Validators.pattern(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/)]],
       season: [this.data.season, [Validators.required]],
       brand: [this.data.brand, Validators.required],
       budget: [this.data.budget, [Validators.required, Validators.pattern(/^[0-9 .,]+$/)]],

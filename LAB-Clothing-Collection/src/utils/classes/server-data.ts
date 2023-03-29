@@ -12,8 +12,8 @@ export class ServerData {
   }
 
   public static getNewId(models: IModel[]): number {
-    for (let i = 0; i < models.length; i += 1) {
-      if (i !== models[i].modelId) {
+    for (let i = 1; i < models.length - 1; i += 1) {
+      if (i !== models[i - 1].modelId) {
         return i;
       }
     }
@@ -108,5 +108,36 @@ export class ServerData {
       collections: serverData.collections,
       models: newModelsArray,
     };
+  }
+
+  public static renameChildModels(
+    previousName: string,
+    newName: string,
+    serverData: IServerData,
+  ): IServerData {
+    const newServerData = structuredClone(serverData);
+    const newModels = newServerData.models;
+    for (let i = 0; i < newModels.length; i += 1) {
+      if (newModels[i].collection === previousName) {
+        newModels[i].collection = newName;
+      }
+    }
+    return newServerData;
+  }
+
+  public static removeChildModels(
+    collectionName: string,
+    serverData: IServerData,
+  ) {
+    const newServerData = structuredClone(serverData);
+    const { models } = newServerData;
+    const newModels: IModel[] = [];
+    for (let i = 0; i < models.length; i += 1) {
+      if (models[i].collection !== collectionName) {
+        newModels.push(models[i]);
+      }
+    }
+    newServerData.models = newModels;
+    return newServerData;
   }
 }

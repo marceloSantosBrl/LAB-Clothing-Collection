@@ -1,15 +1,20 @@
 <div class="d-flex flex-column justify-content-between w-100 h-100 bg-white rounded-2 p-3">
   <h2 class="fs-5 text-muted">{{data.message}}</h2>
-  <div class="row d-flex align-items-center">
-    <div class="col-6">
-      <h3 class="fs-4">{{data.number}}</h3>
+  <div class="d-flex flex-wrap align-items-end">
+    <div>
+      <ng-container *ngIf="!complete; else completeCard">
+        <h3 class="fs-4 m-0">{{data.number}}</h3>
+      </ng-container>
+      <ng-template #completeCard>
+        <h3 class="fs-4 m-0">{{data.number | currency: 'BRL'}}</h3>
+      </ng-template>
     </div>
-    <div class="col-6">
+    <div>
       <ng-container *ngIf="complete">
         <div class="text-end">
           <img src="assets/green-arrow-up.svg" alt="">
           <span class="text-success">25%</span>
-          <p>Comparado com 01/23</p>
+          <p class="m-0">Comparado <br> com 01/23</p>
         </div>
       </ng-container>
     </div>

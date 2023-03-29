@@ -1,1 +1,18 @@
-<p>collections-listing works!</p>
+<ng-container *ngIf="serverData">
+  <div class="container-fluid mt-3">
+    <div class="row mb-2">
+      <div class="col-12 col-lg-2">
+        <h1>Coleções</h1>
+      </div>
+      <div class="col-12 col-lg-2 offset-lg-8 d-flex align-items-center">
+        <a routerLink="/collection-creating" class="btn btn-primary" role="button">Criar Coleção</a>
+      </div>
+    </div>
+  </div>
+  <app-table [colsName]="colsNames"
+             [data]="serverData"
+             [mode]="mode"
+             (clickRow)="clickHandler($event)">
+  </app-table>
+</ng-container>
+

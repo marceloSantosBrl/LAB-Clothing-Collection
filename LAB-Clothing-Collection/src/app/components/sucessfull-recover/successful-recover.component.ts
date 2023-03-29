@@ -20,8 +20,4 @@ export class SuccessfulRecoverComponent {
   public backHandler(): void {
     this.backSignal.emit();
   }
-
-  public navigateLogin():void {
-    this._router.navigate(['/login']);
-  }
 }

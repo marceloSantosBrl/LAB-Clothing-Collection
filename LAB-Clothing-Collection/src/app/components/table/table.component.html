@@ -1,4 +1,4 @@
-<div class="table-responsive-lg">
+<div class="table-responsive-lg bg-white rounded-2">
   <table class="table caption-top table-hover">
     <caption>{{caption}}</caption>
     <thead>
@@ -10,11 +10,32 @@
     </thead>
     <tbody>
     <ng-container *ngIf="mode === 'dashboard'">
-      <tr *ngFor="let collection of data.collections | filterTop: 10">
+      <tr *ngFor="let collection of data.collections | filterTop: 5">
         <th scope="row">{{collection.name}}</th>
         <td>{{collection.creator}}</td>
         <td>{{serverData.findModels(collection.name, data).length}}</td>
-        <td>{{collection.budget}}</td>
+        <td>{{collection.budget | currency: 'BRL'}}</td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="mode === 'model-listing'">
+      <tr class="clickable"
+          *ngFor="let models of data.models | orderModels"
+          (click)="clickRow.emit(models.name)">
+        <th>{{String(models.modelId).padStart(3, '0')}}</th>
+        <td>{{models.name}}</td>
+        <td>{{models.creator}}</td>
+        <td>{{models.collection}}</td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="mode === 'collection-listing'">
+      <tr class="clickable"
+          *ngFor="let collection of data.collections | orderCollections"
+          (click)="clickRow.emit(collection.name)">
+        <th>{{collection.name}}</th>
+        <td>{{collection.creator}}</td>
+        <td class="text-capitalize">{{collection.season}} {{collection.year}}</td>
+        <td>{{serverData.findModels(collection.name, data).length}}</td>
+        <td>{{collection.budget | currency: 'BRL'}}</td>
       </tr>
     </ng-container>
     </tbody>

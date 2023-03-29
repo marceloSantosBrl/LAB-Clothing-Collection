@@ -12,22 +12,23 @@
       Insira suas credenciais para acessar sua conta
     </p>
   </div>
-  <form [formGroup]="insertedCredentials" (ngSubmit)="OnSubmit()">
+  <form [formGroup]="insertedCredentials"
+        (ngSubmit)="OnSubmit()">
     <div class="col mb-2">
       <input class="form-control" type="email" placeholder="Informe seu e-mail"
              formControlName="email">
-      <output class="col-12 mt-2 invisible">
+      <output class="col-12 mt-2 d-none">
         <p class="text-start">
-          Email inválido
+          Digite um e-mail válido
         </p>
       </output>
     </div>
     <div class="col mb-4">
       <input class="form-control" type="password" placeholder="Informe sua senha"
              formControlName="password">
-      <output class="col-12 mt-2 invisible">
+      <output class="col-12 mt-2 d-none">
         <p class="text-start">
-          Senha inválida
+          Digite uma senha válida
         </p>
       </output>
     </div>

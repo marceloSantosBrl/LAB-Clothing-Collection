@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component, EventEmitter, Input, Output,
+} from '@angular/core';
 import { IServerData } from '../../models/i-server-data';
 import { ServerData } from '../../../utils/classes/server-data';
 
@@ -10,6 +12,8 @@ import { ServerData } from '../../../utils/classes/server-data';
 export class TableComponent {
   public serverData = ServerData;
 
+  protected readonly String = String;
+
   @Input('colsName') public colsName!: string[];
 
   @Input('caption') public caption = '';
@@ -17,4 +21,6 @@ export class TableComponent {
   @Input('data') public data!: IServerData;
 
   @Input('mode') public mode!: string;
+
+  @Output('clickRow') public clickRow = new EventEmitter<string>();
 }

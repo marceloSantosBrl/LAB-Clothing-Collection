@@ -38,16 +38,6 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
     private readonly _modal: NgbModal,
   ) { }
 
-  public getNamedCollection(
-    collectionName: string | null,
-    serverData: IServerData,
-  ): ICollection | undefined {
-    if (collectionName) {
-      return serverData.collections.find((element) => element.name === collectionName);
-    }
-    return undefined;
-  }
-
   ngOnInit() {
     this.collectionName = this._activatedRoute.snapshot.queryParamMap.get('name') ?? '';
     this.delGetSubscription = this._server.getServerData()
@@ -59,13 +49,28 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
       });
   }
 
+  ngOnDestroy() {
+    this.delGetSubscription.unsubscribe();
+    if (this.delPutSubscription) {
+      this.delPutSubscription.unsubscribe();
+    }
+    if (this.delDeleteSubscription) {
+      this.delDeleteSubscription.unsubscribe();
+    }
+  }
+
+  private updateCollection(collection: ICollection): IServerData {
+    const deletedCollectionData = this.serverHelper
+      .deleteCollection(this.collectionName, this.serverData);
+    const newServerData = this.serverHelper.addCollection(collection, deletedCollectionData);
+    return this.serverHelper
+      .renameChildModels(this.collectionName, collection.name, newServerData);
+  }
+
   public handleSend(collection: ICollection): void {
-    let deletedCollectionData: IServerData;
     let newServerData: IServerData;
     try {
-      deletedCollectionData = this.serverHelper
-        .deleteCollection(this.collectionName, this.serverData);
-      newServerData = this.serverHelper.addCollection(collection, deletedCollectionData);
+      newServerData = this.updateCollection(collection);
     } catch (e) {
       this.openModal('Coleção Não existe');
       return;
@@ -79,14 +84,11 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
       });
   }
 
-  public handleCancel(): void {
-    this._router.navigate(['/collection-listing']);
-  }
-
   public handleDelete(): void {
     let newServerData: IServerData;
     try {
       newServerData = this.serverHelper.deleteCollection(this.collectionName, this.serverData);
+      newServerData = this.serverHelper.removeChildModels(this.collectionName, newServerData);
     } catch (e) {
       alert('coleção não encontrada');
       return;
@@ -101,18 +103,23 @@ export class CollectionsEditingComponent implements OnInit, OnDestroy {
       });
   }
 
+  public getNamedCollection(
+    collectionName: string | null,
+    serverData: IServerData,
+  ): ICollection | undefined {
+    if (collectionName) {
+      return serverData.collections.find((element) => element.name === collectionName);
+    }
+    return undefined;
+  }
+
+  public handleSuccess() {
+    this._modal.dismissAll();
+    this._router.navigate(['/collection-listing']);
+  }
+
   private openModal(modalMessage: string) {
     this.modalMessage = modalMessage;
     this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
-  }
-
-  ngOnDestroy() {
-    this.delGetSubscription.unsubscribe();
-    if (this.delPutSubscription) {
-      this.delPutSubscription.unsubscribe();
-    }
-    if (this.delDeleteSubscription) {
-      this.delDeleteSubscription.unsubscribe();
-    }
   }
 }

@@ -1,18 +1,19 @@
 <ng-container *ngIf="getNamedCollection(collectionName, serverData) as collection">
-  <app-collection-form [data]="collection"
-                       type="editing"
-                       (sendEvent)="handleSend($event)"
-                       (deleteClick)="handleDelete()"
-                       (cancelClick)="handleCancel()"></app-collection-form>
+  <div class="container-fluid mt-5">
+    <app-collection-form [data]="collection"
+                         type="editing"
+                         (sendEvent)="handleSend($event)"
+                         (deleteClick)="handleDelete()"></app-collection-form>
+  </div>
 </ng-container>
 <ng-template #modal let-content>
-  <div class="modal-body">
+  <div class="modal-body text-center">
     <div class="modal-header d-flex justify-content-center">
       <p>{{modalMessage}}</p>
     </div>
     <div class="modal-footer d-flex justify-content-center">
       <button class="btn btn-primary"
-              (click)="content.dismiss('click')">Ok</button>
+              (click)="handleSuccess()">Ok</button>
     </div>
   </div>
 </ng-template>

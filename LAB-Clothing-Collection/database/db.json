@@ -4,33 +4,74 @@
       "id": 1,
       "collections": [
         {
-          "name": "Adidas New Inverno",
+          "name": "Adidas Originals",
           "brand": "Adidas",
-          "creator": "Yan esteves",
-          "budget": 9500,
-          "season": "inverno",
-          "year": 2003
-        },
-        {
-          "name": "Nike Conceptual",
-          "brand": "Nike",
-          "creator": "Victor Benni",
-          "budget": 500,
+          "creator": "Adi Dassler",
+          "budget": 35000,
           "season": "verão",
-          "year": 2003
+          "year": 2022
         },
         {
-          "name": "Gucci Prime",
+          "name": "Gucci Garden",
           "brand": "Gucci",
-          "creator": "Andre Sulart",
-          "budget": 500,
+          "creator": "Alessandro Michele",
+          "budget": 8000,
+          "season": "primavera",
+          "year": 2023
+        },
+        {
+          "name": "Prada Resort",
+          "brand": "Prada",
+          "creator": "Miuccia Prada",
+          "budget": 8700,
+          "season": "inverno",
+          "year": 2022
+        },
+        {
+          "name": "Chanel Classic",
+          "brand": "Chanel",
+          "creator": "Coco Chanel",
+          "budget": 18000,
           "season": "outono",
-          "year": 2003
+          "year": 2021
+        },
+        {
+          "name": "Nike Air",
+          "brand": "Nike",
+          "creator": "Tinker Hatfield",
+          "budget": 4200,
+          "season": "verão",
+          "year": 2023
+        },
+        {
+          "name": "Versace Barocco",
+          "brand": "Versace",
+          "creator": "Gianni Versace",
+          "budget": 4800,
+          "season": "outono",
+          "year": 2022
+        },
+        {
+          "name": "Converse All Star",
+          "brand": "Converse",
+          "creator": "Marquis Mills Converse",
+          "budget": 2000,
+          "season": "verão",
+          "year": 2023
+        },
+        {
+          "name": "Puma x Rihanna",
+          "brand": "Puma",
+          "creator": "Rihanna",
+          "budget": 1200,
+          "season": "primavera",
+          "year": 2022
         }
       ],
       "models": [
         {
-          "collection": "Adidas New Inverno",
+          "modelId": 1,
+          "collection": "Adidas Originals",
           "name": "Turbo",
           "type": "calça",
           "creator": "Yan esteves",
@@ -38,7 +79,8 @@
           "isEmbroidered": false
         },
         {
-          "collection": "Adidas New Inverno",
+          "modelId": 2,
+          "collection": "Adidas Originals",
           "name": "Vero",
           "type": "bermuda",
           "creator": "Yan esteves",
@@ -46,7 +88,8 @@
           "isEmbroidered": false
         },
         {
-          "collection": "Adidas New Inverno",
+          "modelId": 3,
+          "collection": "Adidas Originals",
           "name": "Talento",
           "type": "boné",
           "creator": "Armanni Gucci",
@@ -54,12 +97,85 @@
           "isEmbroidered": true
         },
         {
-          "collection": "Gucci Prime",
+          "modelId": 4,
+          "collection": "Gucci Garden",
           "name": "Breaker",
           "type": "saia",
           "creator": "Armanni Gucci",
           "isPrinted": false,
           "isEmbroidered": true
+        },
+        {
+          "modelId": 5,
+          "collection": "Nike Air",
+          "name": "Air Max 90",
+          "type": "calçados",
+          "creator": "Tinker Hatfield",
+          "isPrinted": false,
+          "isEmbroidered": false
+        },
+        {
+          "modelId": 6,
+          "collection": "Adidas Originals",
+          "name": "Superstar",
+          "type": "calçados",
+          "creator": "Adi Dassler",
+          "isPrinted": false,
+          "isEmbroidered": true
+        },
+        {
+          "modelId": 7,
+          "collection": "Puma x Rihanna",
+          "name": "Fenty Creeper",
+          "type": "calçados",
+          "creator": "Rihanna",
+          "isPrinted": true,
+          "isEmbroidered": false
+        },
+        {
+          "modelId": 8,
+          "collection": "Converse All Star",
+          "name": "Chuck Taylor",
+          "type": "calçados",
+          "creator": "Chuck Taylor",
+          "isPrinted": false,
+          "isEmbroidered": false
+        },
+        {
+          "modelId": 9,
+          "collection": "Gucci Garden",
+          "name": "Floral Skirt",
+          "type": "saia",
+          "creator": "Alessandro Michele",
+          "isPrinted": true,
+          "isEmbroidered": true
+        },
+        {
+          "modelId": 10,
+          "collection": "Chanel Classic",
+          "name": "Tweed Skirt",
+          "type": "saia",
+          "creator": "Coco Chanel",
+          "isPrinted": false,
+          "isEmbroidered": false
+        },
+        {
+          "modelId": 11,
+          "collection": "Prada Resort",
+          "name": "Pleated Skirt",
+          "type": "saia",
+          "creator": "Miuccia Prada",
+          "isPrinted": false,
+          "isEmbroidered": true
+        },
+        {
+          "modelId": 12,
+          "collection": "Versace Barocco",
+          "name": "Baroque Skirt",
+          "type": "saia",
+          "creator": "Gianni Versace",
+          "isPrinted": true,
+          "isEmbroidered": false
         }
       ]
     }
@@ -71,6 +187,18 @@
         {
           "email": "marcelo@senai.com",
           "password": "123456789"
+        },
+        {
+          "email": "ana@company.com",
+          "password": "qweasdzxc"
+        },
+        {
+          "email": "josephine@gmail.com",
+          "password": "p@ssw0rd"
+        },
+        {
+          "email": "john.doe@yahoo.com",
+          "password": "securepassword"
         }
       ]
     }

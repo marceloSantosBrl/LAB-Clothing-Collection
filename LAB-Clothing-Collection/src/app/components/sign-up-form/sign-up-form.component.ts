@@ -11,10 +11,11 @@ export class SignUpFormComponent {
   @Output('submitEvent') submitEvent = new EventEmitter<IUserCredentials>();
 
   public readonly signUpForm = this._nfb.group({
-    name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ç]+$/)]],
+    name: ['', [Validators.required,
+      Validators.pattern(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/)]],
     businessName: ['', [Validators.required, Validators.minLength(3)]],
     cnpj: ['', [Validators.required,
-      Validators.minLength(14), Validators.pattern(/^[0-9 .]+$/)]],
+      Validators.minLength(14), Validators.pattern(/^[0-9 ./-]+$/)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
@@ -35,6 +36,7 @@ export class SignUpFormComponent {
         email: this.signUpForm.controls.email.value,
         password: this.signUpForm.controls.password.value,
       });
+      this.signUpForm.reset();
     }
   }
 }

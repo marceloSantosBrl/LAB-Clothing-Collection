@@ -30,6 +30,8 @@ import { TableComponent } from './components/table/table.component';
 import { FilterTopPipe } from './pipes/filter-top.pipe';
 import { CollectionFormComponent } from './components/collection-form/collection-form.component';
 import { ModelsFormComponent } from './components/models-form/models-form.component';
+import { OrderCollectionsPipe } from './pipes/order-collections.pipe';
+import { OrderModelsPipe } from './pipes/order-models.pipe';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { ModelsFormComponent } from './components/models-form/models-form.compon
     FilterTopPipe,
     CollectionFormComponent,
     ModelsFormComponent,
+    OrderCollectionsPipe,
+    OrderModelsPipe,
   ],
   imports: [
     BrowserModule,

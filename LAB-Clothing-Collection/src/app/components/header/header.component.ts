@@ -17,6 +17,6 @@ export class HeaderComponent {
 
   public logoffHandler(): void {
     this._auth.logoff();
-    this._router.navigate(['/sign-up']);
+    this._router.navigate(['/sign-in']);
   }
 }
