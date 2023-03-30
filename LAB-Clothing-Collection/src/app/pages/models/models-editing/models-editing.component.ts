@@ -100,6 +100,11 @@ export class ModelsEditingComponent implements OnInit, OnDestroy {
     this._modal.dismissAll();
   }
 
+  public handleSuccess(): void {
+    this._modal.dismissAll();
+    this._router.navigate(['/models-listing']);
+  }
+
   public handleDelete(): void {
     this._modal.open(this.dangerTemplate, { centered: true, size: 'sm' });
   }
