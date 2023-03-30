@@ -8,7 +8,7 @@
       [collectionsName]="serverHelper.getCollectionsNames(serverData)"></app-models-form>
   </div>
 </ng-container>
-<ng-template #modal let-content>
+<ng-template #modal>
   <div class="modal-body text-center">
     <div class="modal-header d-flex justify-content-center">
       <p>{{modalMessage}}</p>
@@ -29,7 +29,7 @@
   </div>
 </ng-template>
 <ng-template #dangerModal>
-  <div class="modal-body">
+  <div class="modal-body text-center">
     <div class="modal-header d-flex justify-content-center">
       <p>A seguinte ação irá remover o modelo. Deseja continuar?</p>
     </div>
