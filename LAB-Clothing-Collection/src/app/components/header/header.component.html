@@ -2,15 +2,15 @@
   <div class="d-lg-none">
     <button class="btn btn-link d-lg-none"
             (click)="clickEvent.emit()">
-      <img class="icon-md" src="assets/list.svg" alt="hamburger">
+      <img class="icon-md" src="assets/list.svg" alt="menu">
     </button>
   </div>
   <a class="d-flex d-lg-none flex-grow-1 flex-lg-grow-0 justify-content-end">
-    <img ngSrc="assets/audaces-logo-expanded.svg" alt="logo" height="32" width="169">
+    <img src="assets/audaces-logo-expanded.svg" alt="logo">
   </a>
   <div class="d-none d-lg-flex justify-content-end flex-grow-1 gap-3 align-items-center">
     <a href="">
-      <img class="icon-sm" ngSrc="assets/bell-fill.svg" alt="notifications" height="16" width="16">
+      <img class="icon-sm" src="assets/bell-fill.svg" alt="notificações">
     </a>
     <div ngbDropdown class="d-inline-block">
       <button class="btn" type="button" ngbDropdownToggle>
@@ -19,20 +19,20 @@
       <ul class="list-unstyled" ngbDropdownMenu>
         <li ngbDropdownItem>
           <a class="d-flex align-items-center gap-2 dropdown-item" href="#">
-            <img ngSrc="assets/person-fill.svg" alt="avatar" height="16" width="16">
+            <img src="assets/person-fill.svg" alt="avatar">
             <p class="m-0">Conta</p>
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="d-flex align-items-center gap-2 dropdown-item" href="#">
-            <img ngSrc="assets/gear-fill.svg" alt="engrenagem" height="16" width="16">
+            <img src="assets/gear-fill.svg" alt="engrenagem">
             <p class="m-0">Configurações</p>
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="d-flex align-items-center gap-2 dropdown-item" href="#"
              (click)="logoffHandler()">
-            <img ngSrc="assets/box-arrow-right.svg" alt="porta" height="16" width="16">
+            <img src="assets/box-arrow-right.svg" alt="porta">
             <p class="m-0">Sair</p>
           </a>
         </li>

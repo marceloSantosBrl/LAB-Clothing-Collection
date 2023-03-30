@@ -1,7 +1,7 @@
 <div class="d-flex flex-column justify-content-between w-100 h-100 bg-white rounded-2 p-3">
   <h2 class="fs-5 text-muted">{{data.message}}</h2>
   <div class="d-flex flex-wrap align-items-end">
-    <div class="col">
+    <div>
       <ng-container *ngIf="!complete; else completeCard">
         <h3 class="fs-4 m-0">{{data.number}}</h3>
       </ng-container>
@@ -12,7 +12,7 @@
     <div>
       <ng-container *ngIf="complete">
         <div class="text-end">
-          <img ngSrc="assets/green-arrow-up.svg" alt="" height="16" width="16">
+          <img src="assets/green-arrow-up.svg" alt="seta-cima">
           <span class="text-success">25%</span>
           <p class="m-0">Comparado <br> com 01/23</p>
         </div>
