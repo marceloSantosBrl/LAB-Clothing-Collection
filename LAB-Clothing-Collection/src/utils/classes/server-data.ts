@@ -12,12 +12,12 @@ export class ServerData {
   }
 
   public static getNewId(models: IModel[]): number {
-    for (let i = 1; i < models.length - 1; i += 1) {
+    for (let i = 1; i <= models.length; i += 1) {
       if (i !== models[i - 1].modelId) {
         return i;
       }
     }
-    return models.length;
+    return models.length + 1;
   }
 
   public static getCollectionsNames(serverData: IServerData): string[] {
