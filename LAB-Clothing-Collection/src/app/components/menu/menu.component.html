@@ -3,7 +3,10 @@
     <li>
       <img class="img-fluid" src="assets/audaces-logo-expanded.svg" alt="logo">
     </li>
-    <li class="nav-item d-flex mt-5">
+    <li>
+      <h1 class="fs-6 text-muted mt-5">MENU</h1>
+    </li>
+    <li class="nav-item d-flex">
       <a class="nav-link" routerLink="/home"
          [ngClass]="{'active': isGroupActive('dashboard')}">Dashboard</a>
     </li>
@@ -20,6 +23,12 @@
     </li>
     <li class="nav-item d-flex">
       <a class="nav-link">Comentários</a>
+    </li>
+    <li class="nav-item d-lg-none">
+      <button class="btn btn-link"
+              (click)="logoutHandler()">
+        Logout
+      </button>
     </li>
   </ul>
 </nav>
