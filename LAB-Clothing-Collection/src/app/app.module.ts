@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FullComponent } from './layouts/full/full.component';
@@ -32,7 +33,6 @@ import { CollectionFormComponent } from './components/collection-form/collection
 import { ModelsFormComponent } from './components/models-form/models-form.component';
 import { OrderCollectionsPipe } from './pipes/order-collections.pipe';
 import { OrderModelsPipe } from './pipes/order-models.pipe';
-import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -64,15 +64,15 @@ import {NgOptimizedImage} from "@angular/common";
     OrderCollectionsPipe,
     OrderModelsPipe,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgOptimizedImage,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
