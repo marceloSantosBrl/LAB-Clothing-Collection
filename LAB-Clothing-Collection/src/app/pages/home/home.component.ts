@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { ServerConnectionService } from '../../services/server-connection/server-connection.service';
 import { IServerData } from '../../models/i-server-data';
 import { ServerData } from '../../../utils/classes/server-data';
-import testObject from '../../../test-artifacts/objects';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +10,6 @@ import testObject from '../../../test-artifacts/objects';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  public testObject = testObject;
-
   public serverData!: IServerData;
 
   public delSub!: Subscription;
