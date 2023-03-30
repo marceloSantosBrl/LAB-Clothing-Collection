@@ -3,12 +3,12 @@ import { IServerData } from '../../app/models/i-server-data';
 import { IModel } from '../../app/models/i-model';
 
 export class ServerData {
-  public static getModel(modelName: String, serverData: IServerData): IModel {
+  public static getModel(modelName: String, serverData: IServerData): IModel | undefined {
     const selectedModel = serverData.models.find((model) => modelName === model.name);
     if (selectedModel) {
       return selectedModel;
     }
-    throw new Error('Model doesn\'t exist');
+    return undefined;
   }
 
   public static getNewId(models: IModel[]): number {

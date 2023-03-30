@@ -1,4 +1,4 @@
-<ng-container *ngIf="getNamedCollection(collectionName, serverData) as collection">
+<ng-container *ngIf="getNamedCollection(collectionName, serverData) as collection; else collectionNotFound">
   <div class="container-fluid mt-5">
     <app-collection-form [data]="collection"
                          type="editing"
@@ -6,6 +6,15 @@
                          (deleteClick)="handleDelete()"></app-collection-form>
   </div>
 </ng-container>
+<ng-template #collectionNotFound>
+  <div class="col-8 offset-1 justify-content-center mt-5">
+    <div class="text-center">
+      <h1 class="display-1 fw-bold">404</h1>
+      <p class="fs-3"> <span class="text-primary">Opps!</span> Coleção não encontrada</p>
+      <a role="button" class="btn btn-primary" routerLink="/collection-listing">Retornar</a>
+    </div>
+  </div>
+</ng-template>
 <ng-template #modal let-content>
   <div class="modal-body text-center">
     <div class="modal-header d-flex justify-content-center">

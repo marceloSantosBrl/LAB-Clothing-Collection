@@ -15,8 +15,8 @@ html, body{
   height:100%;
 }
 
-.debug {
-  outline: 1px solid red;
+body {
+  background-color: #EBF0FA;
 }
 
 .icon-sm {
@@ -50,17 +50,13 @@ html, body{
   width: calc(100vw * (2/12));
 }
 
-.login-container {
-  background-color: #EBF0FA;
-}
-
 @media (min-width: 992px) {
   .menu-container {
     display: flex;
   }
 }
 
-body {
+.login-container {
   background-color: #EBF0FA;
 }
 

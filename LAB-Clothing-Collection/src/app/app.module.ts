@@ -32,6 +32,7 @@ import { CollectionFormComponent } from './components/collection-form/collection
 import { ModelsFormComponent } from './components/models-form/models-form.component';
 import { OrderCollectionsPipe } from './pipes/order-collections.pipe';
 import { OrderModelsPipe } from './pipes/order-models.pipe';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -63,14 +64,15 @@ import { OrderModelsPipe } from './pipes/order-models.pipe';
     OrderCollectionsPipe,
     OrderModelsPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgOptimizedImage,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
