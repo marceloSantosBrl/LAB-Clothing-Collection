@@ -7,10 +7,9 @@ module.exports = {
   parserOptions: {project: './tsconfig.json'},
   overrides: [
   ],
-  // parserOptions: {
-  //   ecmaVersion: 'latest',
-  //   sourceType: 'module'
-  // },
   rules: {
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off"
   }
 }

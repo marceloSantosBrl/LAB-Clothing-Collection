@@ -2,37 +2,37 @@
   <div class="d-lg-none">
     <button class="btn btn-link d-lg-none"
             (click)="clickEvent.emit()">
-      <img class="icon-md" src="assets/list.svg" alt="hamburger">
+      <img class="icon-md" ngSrc="assets/list.svg" alt="hamburger" height="16" width="16">
     </button>
   </div>
   <a class="d-flex d-lg-none flex-grow-1 flex-lg-grow-0 justify-content-end">
-    <img src="assets/audaces-logo-expanded.svg" alt="logo">
+    <img ngSrc="assets/audaces-logo-expanded.svg" alt="logo" height="32" width="169">
   </a>
   <div class="d-none d-lg-flex justify-content-end flex-grow-1 gap-3 align-items-center">
     <a href="">
-      <img class="icon-sm" src="assets/bell-fill.svg" alt="notifications">
+      <img class="icon-sm" ngSrc="assets/bell-fill.svg" alt="notifications" height="16" width="16">
     </a>
     <div ngbDropdown class="d-inline-block">
       <button class="btn" type="button" ngbDropdownToggle>
-        <img class="icon-md" src="assets/doge.jpg" alt="user">
+        <img class="icon-md" ngSrc="assets/doge.jpg" alt="user" height="1252" width="1252">
       </button>
       <ul class="list-unstyled" ngbDropdownMenu>
         <li ngbDropdownItem>
           <a class="d-flex align-items-center gap-2 dropdown-item" href="#">
-            <img src="assets/person-fill.svg" alt="avatar">
+            <img ngSrc="assets/person-fill.svg" alt="avatar" height="16" width="16">
             <p class="m-0">Conta</p>
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="d-flex align-items-center gap-2 dropdown-item" href="#">
-            <img src="assets/gear-fill.svg" alt="engrenagem">
+            <img ngSrc="assets/gear-fill.svg" alt="engrenagem" height="16" width="16">
             <p class="m-0">Configurações</p>
           </a>
         </li>
         <li ngbDropdownItem>
           <a class="d-flex align-items-center gap-2 dropdown-item" href="#"
              (click)="logoffHandler()">
-            <img src="assets/box-arrow-right.svg" alt="porta">
+            <img ngSrc="assets/box-arrow-right.svg" alt="porta" height="16" width="16">
             <p class="m-0">Sair</p>
           </a>
         </li>

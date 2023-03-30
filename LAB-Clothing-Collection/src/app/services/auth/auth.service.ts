@@ -20,14 +20,6 @@ export class AuthService {
     return false;
   }
 
-  public addUserCredential(
-    credential: IUserCredentials,
-    previousCredentials: IUserCredentials[],
-  ):IUserCredentials[] {
-    previousCredentials.push(credential);
-    return previousCredentials;
-  }
-
   public get isLogged(): boolean {
     return window.localStorage
       .getItem('logged') === 'true';
