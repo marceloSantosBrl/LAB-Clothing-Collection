@@ -1,5 +1,7 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
+import {
+  Component, OnDestroy, TemplateRef, ViewChild,
+} from '@angular/core';
+import { Observable, Subscription, switchMap } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IUserCredentials } from '../../../models/i-user-credentials';
 import { ServerConnectionService } from '../../../services/server-connection/server-connection.service';
@@ -10,15 +12,23 @@ import { IServerCredentials } from '../../../models/i-server-credentials';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnDestroy {
   @ViewChild('modal', { read: TemplateRef }) modalTemplate!: TemplateRef<any>;
 
   public modalMessage:string = '';
+
+  public delSubmitSubscription!: Subscription;
 
   constructor(
     private readonly _server: ServerConnectionService,
     private readonly _modal: NgbModal,
   ) { }
+
+  ngOnDestroy() {
+    if (this.delSubmitSubscription) {
+      this.delSubmitSubscription.unsubscribe();
+    }
+  }
 
   private sendCredentials(
     serverCredentials: IServerCredentials,
@@ -41,7 +51,7 @@ export class SignUpComponent {
   }
 
   public submitHandler(credentials: IUserCredentials): void {
-    this._server
+    this.delSubmitSubscription = this._server
       .getCredentials()
       .pipe(switchMap((serverCredentials) => this
         .sendCredentials(serverCredentials, credentials)))

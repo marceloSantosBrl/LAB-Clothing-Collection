@@ -1,6 +1,9 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import {
+  Component, OnDestroy, TemplateRef, ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { IUserCredentials } from '../../../models/i-user-credentials';
 import { AuthService } from '../../../services/auth/auth.service';
 import { ServerConnectionService } from '../../../services/server-connection/server-connection.service';
@@ -10,8 +13,10 @@ import { ServerConnectionService } from '../../../services/server-connection/ser
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent {
-  @ViewChild('modal', { read: TemplateRef }) modalTemplate!: TemplateRef<any>;
+export class SignInComponent implements OnDestroy {
+  @ViewChild('modal', { read: TemplateRef }) public modalTemplate!: TemplateRef<any>;
+
+  public delGetSubscription!: Subscription;
 
   constructor(
     private readonly _auth: AuthService,
@@ -19,6 +24,12 @@ export class SignInComponent {
     private readonly _router: Router,
     private readonly _modal: NgbModal,
   ) { }
+
+  ngOnDestroy() {
+    if (this.delGetSubscription) {
+      this.delGetSubscription.unsubscribe();
+    }
+  }
 
   private loginHandler(
     formCredentials: IUserCredentials,
@@ -33,7 +44,7 @@ export class SignInComponent {
   }
 
   public eventHandler(formCredentials: IUserCredentials): void {
-    this._server
+    this.delGetSubscription = this._server
       .getCredentials()
       .subscribe({
         next: (value) => {
