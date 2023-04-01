@@ -6,5 +6,5 @@ export interface IModel {
   creator: string,
   isPrinted: boolean,
   isEmbroidered: boolean
-  modelId?: number,
+  modelId: number,
 }

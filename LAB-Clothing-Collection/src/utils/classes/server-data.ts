@@ -5,12 +5,13 @@ import { IModel } from '../../app/models/i-model';
 export class ServerData {
 
   public static getNewId(models: IModel[]): number {
-    for (let i = 1; i <= models.length; i += 1) {
-      if (i !== models[i - 1].modelId) {
-        return i;
+    let maxId = 0;
+    for (let i = 0; i < models.length; i += 1) {
+      if (maxId < models[i].modelId) {
+        maxId = models[i].modelId;
       }
     }
-    return models.length + 1;
+    return maxId + 1;
   }
 
   public static getCollectionsNames(serverData: IServerData): string[] {
@@ -21,7 +22,7 @@ export class ServerData {
     const { models } = serverData;
     for (let i = 0; i < models.length; i += 1) {
       if (models[i].name === modelName) {
-        return i;
+        return models[i].modelId;
       }
     }
     return -1;

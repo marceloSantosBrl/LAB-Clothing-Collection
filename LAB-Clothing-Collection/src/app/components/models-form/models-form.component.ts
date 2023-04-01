@@ -57,6 +57,7 @@ export class ModelsFormComponent implements OnInit {
         collection: this.modelForm.get('collection')?.value,
         isEmbroidered: this.modelForm.get('isEmbroidered')?.value,
         isPrinted: this.modelForm.get('isPrinted')?.value,
+        modelId: 0,
       };
       this.submitEvent.emit(collection);
     }
