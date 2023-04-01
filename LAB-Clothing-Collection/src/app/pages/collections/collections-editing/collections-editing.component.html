@@ -1,4 +1,5 @@
-<ng-container *ngIf="getNamedCollection(collectionName, serverData) as collection; else collectionNotFound">
+<ng-container *ngIf="serverData && getNamedCollection(collectionName, serverData) as collection;
+                     else collectionNotFound">
   <div class="container-fluid mt-5">
     <app-collection-form [data]="collection"
                          type="editing"
@@ -7,11 +8,13 @@
   </div>
 </ng-container>
 <ng-template #collectionNotFound>
-  <div class="col-8 offset-1 justify-content-center mt-5">
-    <div class="text-center">
-      <h1 class="display-1 fw-bold">404</h1>
-      <p class="fs-3"> <span class="text-primary">Opps!</span> Coleção não encontrada</p>
-      <a role="button" class="btn btn-primary" routerLink="/collection-listing">Retornar</a>
+  <div *ngIf="serverData">
+    <div class="col-8 offset-1 justify-content-center mt-5">
+      <div class="text-center">
+        <h1 class="display-1 fw-bold">404</h1>
+        <p class="fs-3"> <span class="text-primary">Opps!</span> Coleção não encontrada</p>
+        <a role="button" class="btn btn-primary" routerLink="/collection-listing">Retornar</a>
+      </div>
     </div>
   </div>
 </ng-template>

@@ -3,13 +3,6 @@ import { IServerData } from '../../app/models/i-server-data';
 import { IModel } from '../../app/models/i-model';
 
 export class ServerData {
-  public static getModel(modelName: String, serverData: IServerData): IModel | undefined {
-    const selectedModel = serverData.models.find((model) => modelName === model.name);
-    if (selectedModel) {
-      return selectedModel;
-    }
-    return undefined;
-  }
 
   public static getNewId(models: IModel[]): number {
     for (let i = 1; i <= models.length; i += 1) {

@@ -1,4 +1,4 @@
-<ng-container *ngIf="serverHelper.getModel(modelName, serverData) as modelData; else modelNotFound">
+<ng-container *ngIf="serverData && getModel(modelName, serverData) as modelData; else modelNotFound">
   <div class="container-fluid mt-5">
     <app-models-form
       formType="editing"
@@ -20,11 +20,13 @@
   </div>
 </ng-template>
 <ng-template #modelNotFound>
-  <div class="col-8 offset-1 justify-content-center mt-5">
-    <div class="text-center">
-      <h1 class="display-1 fw-bold">404</h1>
-      <p class="fs-3"> <span class="text-primary">Opps!</span> Modelo não encontrado</p>
-      <a role="button" class="btn btn-primary" routerLink="/models-listing">Retornar</a>
+  <div *ngIf="serverData">
+    <div class="col-8 offset-1 justify-content-center mt-5">
+      <div class="text-center">
+        <h1 class="display-1 fw-bold">404</h1>
+        <p class="fs-3"> <span class="text-primary">Opps!</span> Modelo não encontrado</p>
+        <a role="button" class="btn btn-primary" routerLink="/models-listing">Retornar</a>
+      </div>
     </div>
   </div>
 </ng-template>

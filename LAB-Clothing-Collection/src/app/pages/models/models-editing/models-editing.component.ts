@@ -64,6 +64,14 @@ export class ModelsEditingComponent implements OnInit, OnDestroy {
     }
   }
 
+  public getModel(modelName: String, serverData: IServerData): IModel | undefined {
+    const selectedModel = serverData.models.find((model) => modelName === model.name);
+    if (selectedModel) {
+      return selectedModel;
+    }
+    return undefined;
+  }
+
   private openModal(modalMessage: string): void {
     this.modalMessage = modalMessage;
     this._modal.open(this.modalTemplate, { centered: true, size: 'sm' });
