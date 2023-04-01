@@ -24,8 +24,8 @@ export class MenuComponent {
           || currentRoute === '/collection-creating';
       case 'model':
         return currentRoute === '/models-listing'
-          || currentRoute === 'models-editing'
-          || currentRoute === 'models-creating';
+          || currentRoute === '/models-editing'
+          || currentRoute === '/models-creating';
       default:
         return false;
     }
