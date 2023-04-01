@@ -85,9 +85,10 @@
   <div class="row g-3"
        *ngIf="formType === 'editing'; else saveTemplate">
     <div class="col-12 col-lg-8 text-center text-lg-start">
-      <button type="submit" class="btn btn-primary"
-              [disabled] = "modelForm.invalid">
-        Atualizar
+      <button type="button" class="btn btn-danger"
+              [disabled]="modelForm.get('name')?.invalid ?? true"
+              (click)="deleteEvent.emit()">
+        Excluir
       </button>
     </div>
     <div class="col-12 col-lg-2 text-center">
@@ -97,10 +98,9 @@
       </a>
     </div>
     <div class="col-12 col-lg-2 text-center">
-      <button type="button" class="btn btn-danger"
-              [disabled]="modelForm.get('name')?.invalid ?? true"
-              (click)="deleteEvent.emit()">
-        Excluir
+      <button type="submit" class="btn btn-primary"
+              [disabled] = "modelForm.invalid">
+        Atualizar
       </button>
     </div>
   </div>
