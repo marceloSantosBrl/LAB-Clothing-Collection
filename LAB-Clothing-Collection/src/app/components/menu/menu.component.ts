@@ -20,11 +20,11 @@ export class MenuComponent {
         return currentRoute === '/home';
       case 'collection':
         return currentRoute === '/collection-listing'
-          || currentRoute === '/collection-editing'
+          || currentRoute.startsWith('/collection-editing')
           || currentRoute === '/collection-creating';
       case 'model':
         return currentRoute === '/models-listing'
-          || currentRoute === '/models-editing'
+          || currentRoute.startsWith('/models-editing')
           || currentRoute === '/models-creating';
       default:
         return false;
