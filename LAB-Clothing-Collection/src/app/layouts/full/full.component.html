@@ -1,7 +1,9 @@
-<div class="col-2 fixed-top d-none d-lg-block">
+<aside class="col-2 fixed-top d-none d-lg-block">
   <app-menu class="min-vh-100"></app-menu>
-</div>
-<app-header (clickEvent)="_offCanvas.open(canvas)" class="sticky-top"></app-header>
+</aside>
+<header class="sticky-top">
+  <app-header (clickEvent)="_offCanvas.open(canvas)"></app-header>
+</header>
 <div class="container-fluid">
   <main class="col-12 col-lg-10 offset-lg-2">
     <router-outlet></router-outlet>
