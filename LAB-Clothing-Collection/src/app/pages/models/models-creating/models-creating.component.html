@@ -1,5 +1,8 @@
+<div class="mt-2">
+  <h1 class="ms-3">Criar Modelo</h1>
+</div>
 <ng-container *ngIf="serverHelper.getCollectionsNames(serverData) as collections">
-  <div class="container-fluid mt-5">
+  <div class="container-fluid">
     <app-models-form
       (submitEvent)="handleSubmit($event)"
       [collectionsName]="serverHelper.getCollectionsNames(serverData)">

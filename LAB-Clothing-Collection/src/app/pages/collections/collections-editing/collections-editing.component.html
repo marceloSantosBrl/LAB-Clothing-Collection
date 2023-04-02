@@ -1,6 +1,9 @@
+<div class="mt-2">
+  <h1 class="ms-3">Editar Coleção</h1>
+</div>
 <ng-container *ngIf="serverData && getNamedCollection(collectionName, serverData) as collection;
                      else collectionNotFound">
-  <div class="container-fluid mt-5">
+  <div class="container-fluid">
     <app-collection-form [data]="collection"
                          type="editing"
                          (sendEvent)="handleSend($event)"

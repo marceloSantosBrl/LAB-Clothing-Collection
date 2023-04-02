@@ -1,5 +1,8 @@
+<div class="mt-2">
+  <h1 class="ms-3">Editar Modelo</h1>
+</div>
 <ng-container *ngIf="serverData && getModel(modelName, serverData) as modelData; else modelNotFound">
-  <div class="container-fluid mt-5">
+  <div class="container-fluid">
     <app-models-form
       formType="editing"
       (submitEvent)="handleSubmit($event)"
